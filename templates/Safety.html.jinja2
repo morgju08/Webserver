@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/CSS/bootstrap.css">
+		<link rel="stylesheet" href="/static/CSS/MyCSS.css">
+		
+		<title>Climbing Safety</title>
+		<meta name="viewport" content="width=device-width", initial-scale=1">
+	</head>
+	
+	<body>
+		<div class="bgimg-6">
+			<div class="caption">
+				<span class="border">Safety</span>
+			</div>
+		</div>
+		
+		<div class="separator">
+			<h1 class="h1">"Safety is NO Accident"</h1>
+				<p>
+				Many of the dangers at the crag can affect the climber, the belayer and even bystanders. So it is important to keep an eye on the situation around you as it develops and adapt your plans to suit. The key to climbing safely at the beginning of your climbing career is to choose the right crag, grade and route.
+				</p>
+				<p>
+				We will go over basics of the following:
+				    <ul>
+				        {% for protection in protections %}
+				            <li>{{ protection }}</li>
+				        {% endfor %}
+				    </ul>
+				</p>
+				<p>
+				Helmets: Shock absorbing helmets are vital for protecting your head. While working high above the ground, this is even more important.
+				</p>
+				<p>
+				Harnesses: Harnesses need to be fitted probably and the buckles securely double based or locked off.  The waist belt needs to be tight enough so it won’t pull down over your hip bone, a good rule of thumb is a fact hand can slide down the front but not a clenched fist.
+				</p>
+				<p>
+				Carabiners: Used in many safety-critical systems, these keep everything firmly connected together.
+				</p>
+				<p>
+				Belay Devices: These devices help you to descend and ascend under your own control while climbing.
+				</p>
+				<p>
+				You may find the technical side of climbing daunting, but by becoming more aware of risk, ropework and sound judgement you’ll become a safer climber. With regular practice, these skills will become second nature and your safety will increase. Spend time learning ropework and safety skills from a professional instructor or centre. This is one area of your climbing for which there is no substitute for informed instruction.
+				</p>
+		</div>
+		
+		<div class="bgimg-10">
+			<div class="caption2">
+				<span class="border">Links</span>
+			</div>
+			
+			<div class="caption4">
+				<div class="container">
+					<div class="row">
+						
+						<!-- Column 1 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Locations';">Locations</button>
+						</div>
+						
+						<!-- Column 2 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Homepage';">Back Home</button>
+						</div>
+							
+						<!-- Column 3 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Classes';">Classes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

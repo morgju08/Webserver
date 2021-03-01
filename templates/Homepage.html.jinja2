@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/CSS/bootstrap.css">
+		<link rel="stylesheet" href="/static/CSS/MyCSS.css">
+		<script src="/static/Java/jquery-3.5.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				// ALL YOUR CODE HERE
+				$("p").click(function(){
+					$(this).slideUp()
+				})
+			});
+		</script>
+		
+		<title>Rock Climbing with {{ name }}</title>
+		<meta name="viewport" content="width=device-width", initial-scale=1">
+	</head>
+	
+	<body>
+		<div class="bgimg-1">
+			<div class="caption">
+				<span class="border">ROCK CLIMBING</span>
+			</div>
+		</div>
+		
+		<div class="separator">
+			<h1 class="h1">What is Climbing?</h1>
+				<p>
+				Rock climbing is the sport or activity of climbing rock faces, especially with the aid of ropes and special equipment. The concept is to reach an end point, or a summit, of a rock face or structure. This can be done with specific equipment, depending on the difficulty and severity of the climb.
+				It is a physically demanding sport that combines fitness and agility with the mental fortitude required to conquer an ascension or traverse. It can be perilous, but that is often considered a positive aspect of the adventure.
+				There are many types of rock found all over the world, from igneous (granite) to sedimentary (limestone and sandstone) to metamorphic (gneiss). Some courses and routes are built on artificial walls, as well.
+				There are many types of rock climbing, each with their own equipment, setting, and surface(s).
+				</p>
+		</div>
+		
+		<div class="bgimg-2">
+			<div class="caption">
+				<span class="border">Friendships</span>
+			</div>
+		</div>
+	
+		<div class="separator">
+			<h1 class="h1">Types of Climbing</h1>
+				<p>
+					<span class="h2">
+					Top-Roping:
+					</span>
+					Top rope climbing is a style in climbing in which the climber is securely attached to a rope which then passes up, through an anchor system at the top of the climb, and down to a belayer at the foot of the climb.
+				</p>
+				<p>
+					<span class="h2">
+					Sport Climbing:
+					</span>
+					Sport climbing is a form of rock climbing that may rely on permanent anchors fixed to the rock for protection, in which a rope that is attached to the climber is clipped into the anchors to arrest a fall, or that involves climbing short distances with a crash pad underneath as protection.
+				</p>
+				<p>
+					<span class="h2">
+					Trad Climbing:
+					</span>
+					Traditional climbing, is a style of rock climbing in which a climber or group of climbers place all gear required to protect against falls, and remove it when a pitch is complete. Traditional bolted face climbing means the bolts were placed on lead and/or with hand drills.
+				</p>
+
+		</div>
+		
+		<div class="bgimg-3">
+			<div class="caption2">
+				<span class="border">Links</span>
+			</div>
+			
+			<div class="caption4">
+				<div class="container">
+					<div class="row">
+						
+						<!-- Column 1 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Locations';">Locations</button>
+						</div>
+						
+						<!-- Column 2 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Safety';">Safety</button>
+						</div>
+							
+						<!-- Column 3 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Classes';">Classes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>

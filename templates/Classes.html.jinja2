@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/CSS/bootstrap.css">
+		<link rel="stylesheet" href="/static/CSS/MyCSS.css">
+		<script src="/static/Java/jquery-3.5.1.js"></script>
+		<script>
+
+			$(document).ready(function(){
+				// ALL YOUR CODE HERE
+				$("button").click(function(){
+					$(this).css("background","green");
+					$(this).html("Already Notified of Interest");
+					console.log("The button was clicked!");
+					
+					
+					var x = document.createElement("P");
+					var t = document.createTextNode("Thank you for showing interest!");
+					x.appendChild(t);
+					document.getElementById("alert_ID").appendChild(x);
+				})
+				
+				
+				var myVar = setInterval(myDate, 1000);
+				function myDate() {
+					var d = new Date();
+					var t = d.toLocaleDateString();
+					document.getElementById("date").innerHTML=t;
+				}
+				
+				var myVar = setInterval(myTimer, 1000);
+				function myTimer() {
+					var d = new Date();
+					var t = d.toLocaleTimeString();
+					document.getElementById("timer").innerHTML=t;
+				}
+			});
+		</script>
+		
+		<title>Climbing Classes</title>
+		<meta name="viewport" content="width=device-width", initial-scale=1">
+	</head>
+	
+	<body>
+		<div class="bgimg-7">
+			<div class="caption">
+				<span class="border">Classes</span>
+			</div>
+		</div>
+		
+		<div class="separator">
+			<h1 class="h1">Learn to Climb like Eamonn!</h1>
+				<p>
+				Learn the fundamentals of outdoor rock climbing in this hands-on experience. We'll focus on building the skills you need to continue your climbing journey, including proper belay techniques to keep your fellow climbers protected while they're off the ground. We'll cover necessary knots and give you the chance to practice basic outdoor climbing techniques, with some personalized instruction along the way.
+				</p>
+		</div>
+		
+		<div class="bgimg-8">
+		</div>
+		
+		<div class="separator">
+			<table class="table caption-top">
+				<div class="h1">Prices (Updated on <span id="date"></span>)</div>
+				<thead>
+					<tr>
+						<th scope="col">Type</th>
+						<th scope="col">Instruction Hours</th>
+						<th scope="col">Class Size</th>
+						<th scope="col">Cost</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Introductory</th>
+						<td>2</td>
+						<td>10-15</td>
+						{% if price_1 > 20 %}
+						    <td>${{ price_1 }}</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<th scope="row">Intermediate</th>
+						<td>3</td>
+						<td>5-10</td>
+						{% if price_2 > 30 %}
+						    <td>${{ price_2 }}</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<th scope="row">Advanced</th>
+						<td>4</td>
+						<td>1-5</td>
+						{% if price_3 > 45 %}
+						    <td>${{ price_3 }}</td>
+						{% endif %}
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br>
+			<div class="alert alert-success" role="alert">
+				<h2 class="alert-heading">Classes are Available!</h2>
+				<br>
+				<h3>As of <span id="timer"></span></h3>
+				<hr>
+				<p id="alert_ID">Show interest by clicking the button below!  Eamonn will contact you shortly in order to gather more details.  We look forward to climbing with you!</p>
+				<br><br>
+				<div class="container">
+					<button onclick="alert('Eamonn will contact you shortly!')">Click Here if Interested!</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="bgimg-9">
+			<div class="caption2">
+				<span class="border">Links</span>
+			</div>
+			
+			<div class="caption4">
+				<div class="container">
+					<div class="row">
+						
+						<!-- Column 1 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Safety';">Safety</button>
+						</div>
+						
+						<!-- Column 2 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Homepage';">Back Home</button>
+						</div>
+							
+						<!-- Column 3 -->
+						<div class="col">
+							<button class="border" type="button" onclick="location.href = 'Locations';">Locations</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
