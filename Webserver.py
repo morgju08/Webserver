@@ -4,6 +4,7 @@ from aiohttp import web
 import aiohttp
 import aiohttp_jinja2
 import jinja2
+import sqlite3
 
 
 @aiohttp_jinja2.template('Homepage.html.jinja2')
@@ -22,10 +23,16 @@ async def locations(request):
 
 @aiohttp_jinja2.template('Classes.html.jinja2')
 async def classes(request):
+    conn = sqlite3.connect('tweet_db.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Tweets ORDER BY Likes DESC")
+    results = cursor.fetchall()
     return {
         "price_1": 30,
         "price_2": 45,
-        "price_3": 60
+        "price_3": 60,
+
+        "tweets": results
     }
 
 @aiohttp_jinja2.template('Safety.html.jinja2')

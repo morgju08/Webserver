@@ -48,6 +48,11 @@
     min-height: 80%;
 }
 
+.bgimg-11 {
+	background-image: url(/static/Images/Joshua_Tree.jpg);
+    min-height: 65%;
+}
+
 .bgimg-1, 
 .bgimg-2, 
 .bgimg-3,
@@ -57,7 +62,8 @@
 .bgimg-7, 
 .bgimg-8, 
 .bgimg-9, 
-.bgimg-10
+.bgimg-10,
+.bgimg-11
  {
     position: relative;
     opacity: .80;
@@ -116,4 +122,24 @@
 	color: #777;
 	font-weight: bold;
 	letter-spacing: 2px;
+}
+
+.tweet_upper {
+    font-size: 12px;
+    text-align: left;
+}
+
+.tweet {
+    text-align: left;
+    color: #000;
+}
+
+.tweet_location {
+    font-size: 12px;
+    text-align: left;
+}
+
+.tweet_likes {
+    font-size: 12px;
+    text-align: right;
 }
