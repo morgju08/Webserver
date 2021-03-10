@@ -61,7 +61,7 @@ async def like(request):
     cursor.execute("SELECT Likes FROM Tweets WHERE id=%s" % tweet_id)
     like_count = cursor.fetchone()[0]
     # add 1 to the like count and save it
-    cursor.execute("UPDATE Tweets SET Likes=%d WHERE id=%s" % (like_count + 1, id))
+    cursor.execute("UPDATE Tweets SET Likes=%d WHERE id=%s" % (like_count + 1, tweet_id))
     conn.commit()
     conn.close()
     raise web.HTTPFound('/Classes')
