@@ -1,0 +1,8 @@
+CREATE TABLE "Tweets" (
+	"Content"	TEXT NOT NULL,
+	"Timestamp"	INTEGER,
+	"Likes"	INTEGER,
+	"Location"	TEXT,
+	"ID"	INTEGER NOT NULL UNIQUE,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);

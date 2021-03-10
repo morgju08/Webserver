@@ -133,7 +133,9 @@
                                         <div class="tweet_location">FROM:  {{ results[3] }}</div>
                                     </div>
                                     <div class="col">
-                                        <div class="tweet_likes">LIKES: {{ results[2] }}</div>
+                                        <div class="tweet_likes">
+                                        <a class="btn btn-primary" href="/like?id={{ results[4] }}">{{ results[2] }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -141,6 +143,12 @@
                     </div>
                 <br>
                 {% endfor %}
+
+            <form action="/tweet", method="post">
+                <input name="content", type="text">
+                <input type="submit" value="Leave Review">
+            </form>
+
 		</div>
 		
 		<div class="bgimg-9">
