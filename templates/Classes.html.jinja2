@@ -37,7 +37,24 @@
 				}
 			});
 		</script>
-		
+		<script
+          src="https://code.jquery.com/jquery-3.6.0.js"
+          integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+          crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".like-btn").click(function(){
+                    var tweet_id = $(this).attr("data-tweet-id");
+                    console.log("You liked a tweet id...running AJAX request:", tweet_id);
+                    $.get("/likes.json?id="+tweet_id,function(data){
+                        console.log(data);
+                    })
+                })
+            })
+		</script>
+
+
 		<title>Climbing Classes</title>
 		<meta name="viewport" content="width=device-width", initial-scale=1">
 	</head>
@@ -134,7 +151,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="tweet_likes">
-                                        <a class="btn btn-primary" href="/like?id={{ results[4] }}">{{ results[2] }}</a>
+                                        <!--like button-->
+                                        <span class="btn btn-primary like-btn" data-tweet-id="{{ results[4] }}">Likes: {{ results[2] }}</span>
                                         </div>
                                     </div>
                                 </div>
