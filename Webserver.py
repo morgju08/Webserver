@@ -108,7 +108,7 @@ def main():
                     web.static('/static','static',show_index=False),
                     web.post('/tweet', add_tweet),
                     web.get('/like',like),
-                    web.get('/like.json',like_json)])
+                    web.get('/Classes/like.json',like_json)])
 
     print("Hi!!! Welcome to Webserver 1.0")
     web.run_app(app, host="127.0.0.1",port=3000)
