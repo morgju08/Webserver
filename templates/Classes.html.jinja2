@@ -48,7 +48,7 @@
                     let btn = $(this);
                     let tweet_id = btn.attr("data-tweet-id");
                     console.log("You liked a tweet id...running AJAX request:", tweet_id);
-                    $.get("/like.json?id="+tweet_id,function(data){
+                    $(document).get("/like.json?id="+tweet_id,function(data){
                         let like_count = $('#tweet-like-count-'+tweet_id)
                         like_count.fadeOut(70);
                         setTimeout(function(){
