@@ -45,10 +45,16 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $(".like-btn").click(function(){
-                    var tweet_id = $(this).attr("data-tweet-id");
+                    let btn = $(this);
+                    let tweet_id = btn.attr("data-tweet-id");
                     console.log("You liked a tweet id...running AJAX request:", tweet_id);
                     $.get("/likes.json?id="+tweet_id,function(data){
-                        console.log(data);
+                        let like_count = $('#tweet-like-count-'+tweet_id)
+                        like_count.fadeOut(70);
+                        setTimeout(function(){
+                            like_count.html(data.like_count);
+                            like_count.fadeIn(300);
+                        },70)
                     })
                 })
             })
@@ -152,7 +158,19 @@
                                     <div class="col">
                                         <div class="tweet_likes">
                                         <!--like button-->
-                                        <span class="btn btn-primary like-btn" data-tweet-id="{{ results[4] }}">Likes: {{ results[2] }}</span>
+                                            <span class="text-primary" id="tweet-like-count-{{ results[4] }}">
+                                                {{ results[2] }}
+                                            </span>
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            <span class="btn btn-primary like-btn" data-tweet-id="{{ results[4] }}">
+                                                Like
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

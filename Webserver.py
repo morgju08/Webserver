@@ -83,7 +83,7 @@ async def like_json(request):
     cursor.execute("UPDATE Tweets SET Likes=? WHERE id=?", (like_count + 1, tweet_id))
     conn.commit()
     conn.close()
-    return web.json_response(data={"like_count":like_count})
+    return web.json_response(data={"like_count":like_count+1})
 
 def get_location(target):
     api_key = "15e4c318fe79628787ed5571ea69f63f"
