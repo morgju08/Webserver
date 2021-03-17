@@ -38,17 +38,17 @@
 			});
 		</script>
 		<script
-          src="https://code.jquery.com/jquery-3.6.0.js"
-          integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-          crossorigin="anonymous">
-        </script>
+		    src="https://code.jquery.com/jquery-3.6.0.js"
+		    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		    crossorigin="anonymous">
+		</script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $(".like-btn").click(function(){
                     let btn = $(this);
                     let tweet_id = btn.attr("data-tweet-id");
                     console.log("You liked a tweet id...running AJAX request:", tweet_id);
-                    $.get("/likes.json?id="+tweet_id,function(data){
+                    $.get("/like.json?id="+tweet_id,function(data){
                         let like_count = $('#tweet-like-count-'+tweet_id)
                         like_count.fadeOut(70);
                         setTimeout(function(){
