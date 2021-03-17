@@ -110,7 +110,7 @@ def main():
                     web.get('/like',like),
                     web.get('/like.json',like_json)])
 
-    print("Hi!!! Welcome to Webserver 1.0")
+    print("Hi!!! Welcome to Webserver 1.")
     web.run_app(app, host="0.0.0.0",port=80)
 
 
