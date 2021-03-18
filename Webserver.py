@@ -46,14 +46,16 @@ async def add_tweet(request):
     data = await request.post()
     content = data['content']
 
+    # Getting the user location
     target = request.remote
     # target = "8.8.8.8"
     print("User is coming from %s" % target)
     location = get_location(target)
     print("User is at: %s " % location)
 
+    # Date-time info: The time isn't in the correct timezone for the AWS site :(
     now = datetime.now()
-    current_time = now.strftime("%B %d, %Y at %H:%M %p")
+    current_time = now.strftime("%B %d, %Y at %I:%M %p")
 
     # INSERT INTO Tweets(content,likes) VALUES ("new tweet!",0);
     conn = sqlite3.connect('tweet_db.db')
