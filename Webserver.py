@@ -47,6 +47,7 @@ async def add_tweet(request):
     content = data['content']
 
     target = request.remote
+    # target = "8.8.8.8"
     print("User is coming from %s" % target)
     location = get_location(target)
     print("User is at: %s " % location)
@@ -108,10 +109,10 @@ def main():
                     web.static('/static','static',show_index=False),
                     web.post('/tweet', add_tweet),
                     web.get('/like',like),
-                    web.get('/Classes/like.json',like_json)])
+                    web.get('/like.json',like_json)])
 
     print("Hi!!! Welcome to Webserver 1.0")
-    web.run_app(app, host="0.0.0.0",port=80)
+    web.run_app(app, host="127.0.0.1",port=3000)
 
 
 
