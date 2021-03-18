@@ -1,7 +1,7 @@
 # Webserver
 
 from aiohttp import web
-import aiohttp
+from datetime import datetime
 import aiohttp_jinja2
 import jinja2
 import sqlite3
@@ -52,10 +52,13 @@ async def add_tweet(request):
     location = get_location(target)
     print("User is at: %s " % location)
 
+    now = datetime.now()
+    current_time = now.strftime("%B %d, %Y at %H:%M %p")
+
     # INSERT INTO Tweets(content,likes) VALUES ("new tweet!",0);
     conn = sqlite3.connect('tweet_db.db')
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO Tweets (content,likes,location) VALUES (?,0,?)", (content,location))
+    cursor.execute("INSERT INTO Tweets (Content,TimeStamp,Likes,Location) VALUES (?,?,0,?)", (content,current_time,location))
     conn.commit()
     print("The user tweeted:  %s" % data['content'])
     raise web.HTTPFound('/Classes')
