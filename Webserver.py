@@ -22,19 +22,23 @@ async def locations(request):
         "location_3": "Annapolis Rock"
     }
 
-@aiohttp_jinja2.template('Classes.html.jinja2')
+#@aiohttp_jinja2.template('Classes.html.jinja2')
 async def classes(request):
     conn = sqlite3.connect('tweet_db.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Tweets ORDER BY Likes DESC")
     results = cursor.fetchall()
-    return {
-        "price_1": 30,
-        "price_2": 45,
-        "price_3": 60,
-
-        "tweets": results
-    }
+    context = {"results": results,
+               "price_1": 30,
+               "price_2": 45,
+               "price_3": 60,
+               "tweets": results
+               }
+    response = aiohttp_jinja2.render_template('Classes.html.jinja2',
+                                              request,
+                                              context)
+    response.set_cookie('logged_in', 'yes')
+    return response
 
 @aiohttp_jinja2.template('Safety.html.jinja2')
 async def safety(request):
