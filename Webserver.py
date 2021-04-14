@@ -77,7 +77,7 @@ async def login(request):
     conn = sqlite3.connect('tweet_db.db')
     cursor = conn.cursor()
 
-    cursor.execute("SELECT salt FROM users WHERE username=?", (data['username'],))
+    cursor.execute("SELECT salt FROM Users WHERE username=?", (data['username'],))
     result = cursor.fetchone()
     if result is None:
         raise web.HTTPFound('/Login')
@@ -86,7 +86,7 @@ async def login(request):
     salted_password = data['password'] + salt
     hashed_password = hashlib.md5(salted_password.encode('ascii')).hexdigest()
 
-    cursor.execute("SELECT COUNT(*) FROM users WHERE username=? AND password=?",
+    cursor.execute("SELECT COUNT(*) FROM Users WHERE username=? AND password=?",
                    (data['username'],hashed_password))
     query_result = cursor.fetchone()
 
@@ -101,7 +101,7 @@ async def login(request):
     # generate a new cookie
     logged_in_secret = secrets.token_hex(8)
     response.cookies['logged_in'] = logged_in_secret
-    cursor.execute("UPDATE users SET cookie=? WHERE username=?", (logged_in_secret,data['username']))
+    cursor.execute("UPDATE Users SET cookie=? WHERE username=?", (logged_in_secret,data['username']))
     # store the cookie in our own database
     conn.commit()
     conn.close()
@@ -148,7 +148,7 @@ async def delete_tweet(request):
     conn = sqlite3.connect('tweet_db.db')
     cursor = conn.cursor()
 
-    cursor.execute("SELECT username FROM users WHERE cookie=?", (request.cookies['logged_in'],))
+    cursor.execute("SELECT username FROM Users WHERE cookie=?", (request.cookies['logged_in'],))
     result = cursor.fetchone()
     if result is None:
         raise web.HTTPForbidden()
