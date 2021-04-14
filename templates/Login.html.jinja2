@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/CSS/bootstrap.css">
+		<link rel="stylesheet" href="/static/CSS/MyCSS.css">
+		<script src="/static/Java/jquery-3.5.1.js"></script>
+
+		<script
+		    src="https://code.jquery.com/jquery-3.6.0.js"
+		    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		    crossorigin="anonymous">
+		</script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-586L3T93BB"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-586L3T93BB');
+        </script>
+
+		<title>Login Page: Classes</title>
+		<meta name="viewport" content="width=device-width", initial-scale=1">
+
+	</head>
+
+	<body>
+	    <div class="container">
+	        <div class="row pt-4">
+	            <div class="col-6 offset-3" style="border:solid; border-radius: 10px">
+	                <h1>Welcome, please log in</h1>
+	                </hr>
+
+                    <form action="/Login" class="form col-6 offset-3" method="post">
+                        <div>
+                            <label for="username" class="form-label">Username</label>
+                            <input id="username" class="form-control" name="username" type="text">
+                        </div>
+                        <div>
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" class="form-control" name="password" type="password">
+                        </div>
+                        <div class="mt-3">
+                            <input type="submit" class="btn btn-primary" value="Login">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</body>
+
+</html>

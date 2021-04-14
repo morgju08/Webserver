@@ -72,10 +72,18 @@
 
 		<title>Climbing Classes</title>
 		<meta name="viewport" content="width=device-width", initial-scale=1">
-
 	</head>
 	
 	<body>
+
+	    {% if cookie == logged_in %}
+            <a href="/Logout">Log out</a>
+        {% endif %}
+
+        {% if cookie != logged_in %}
+            <a href="/Login">Log in</a>
+        {% endif %}
+
 		<div class="bgimg-7">
 			<div class="caption">
 				<span class="border">Classes</span>
@@ -181,6 +189,11 @@
                                             <span class="btn btn-primary like-btn" data-tweet-id="{{ results[4] }}">
                                                 Like
                                             </span>
+                                            {% if cookie == logged_in %}
+                                                <a class="btn btn-danger remove-btn" href="/delete?id={{ results[4] }}">
+                                                    Remove
+                                                </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -208,17 +221,17 @@
 						
 						<!-- Column 1 -->
 						<div class="col">
-							<button class="border" type="button" onclick="location.href = 'Safety';">Safety</button>
+							<btn class="border" type="button" onclick="location.href = 'Safety';">Safety</button>
 						</div>
 						
 						<!-- Column 2 -->
 						<div class="col">
-							<button class="border" type="button" onclick="location.href = 'Homepage';">Back Home</button>
+							<btn class="border" type="button" onclick="location.href = 'Homepage';">Back Home</button>
 						</div>
 							
 						<!-- Column 3 -->
 						<div class="col">
-							<button class="border" type="button" onclick="location.href = 'Locations';">Locations</button>
+							<btn class="border" type="button" onclick="location.href = 'Locations';">Locations</button>
 						</div>
 					</div>
 				</div>
