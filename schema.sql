@@ -14,5 +14,3 @@ CREATE TABLE IF NOT EXISTS "Users" (
     "cookie" TEXT,
     "salt" TEXT
 );
-
-$>sqlite tweet_db.db<schema.sql
