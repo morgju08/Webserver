@@ -159,6 +159,30 @@ async def delete_tweet(request):
     conn.commit()
     raise web.HTTPFound('/Classes')
 
+async def create_admin(request):
+    # 1.) Prompt user for input
+    username = input("Enter Username:  ")
+    password = input("Enter Password:  ")
+    print("User: %s, Password: %s" % (username, password))
+
+    # 2.) Generate Salt
+    salt = secrets.token_hex(6)
+
+    # 3.) Put together the salt and password
+    salted_password = password+salt
+
+    # 4.) Hash the password
+    hashed_password = hashlib.md5(salted_password.encode('ascii')).hexdigest()
+
+    # 5.) Putting user info in database
+    conn = sqlite3.connect("tweet_db.db")
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO Users (username, password, salt) VALUES (?,?,?)",
+                 (username, hashed_password, salt))
+    conn.commit()
+    conn.close()
+    raise web.HTTPFound('/Classes')
+
 async def like(request):
     conn = sqlite3.connect('tweet_db.db')
     cursor = conn.cursor()
@@ -208,6 +232,7 @@ def main():
                     web.get('/Login', show_login),
                     web.post('/Login', login),
                     web.get('/Logout', logout),
+                    web.get('/CreateAdmin', create_admin),
                     web.static('/static','static',show_index=False),
                     web.post('/tweet', add_tweet),
                     web.get('/delete',delete_tweet),
